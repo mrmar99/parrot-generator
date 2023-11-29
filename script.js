@@ -14,9 +14,8 @@ function loadImage(src) {
 }
 
 async function drawImageOnCanvas(ctx, W, H) {
-  const bgImg = await loadImage("bg.jpg");
-  // const { width: imgW, height: imgH } = bgImg;
-  ctx.drawImage(bgImg, 0, 0);
+  const bgImg = await loadImage("bg2.jpg");
+  ctx.drawImage(bgImg, 0, 0, W, H);
 }
 
 drawImageOnCanvas(ctx, W, H)
