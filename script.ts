@@ -1,3 +1,5 @@
+import { Budgerigar } from "./parrotGenerator/parrot/Budgerigar.js";
+
 const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
 
@@ -22,16 +24,15 @@ async function drawImageOnCanvas(
   W: number,
   H: number
 ) {
-  const bgImg = (await loadImage("bg2.jpg")) as CanvasImageSource;
+  const bgImg = (await loadImage("bg.jpg")) as CanvasImageSource;
   ctx.drawImage(bgImg, 0, 0, W, H);
 }
 
 drawImageOnCanvas(ctx, W, H)
   .then(() => {
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(100, 100);
-    ctx.stroke();
+    const budgerigar = new Budgerigar(canvas);
+    budgerigar.drawRightSide();
+    console.log(budgerigar)
   })
   .catch((error) => {
     console.error(error);

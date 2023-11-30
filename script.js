@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { Budgerigar } from "./parrotGenerator/parrot/Budgerigar.js";
 const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
 if (!ctx) {
@@ -24,16 +24,15 @@ function loadImage(src) {
 }
 function drawImageOnCanvas(ctx, W, H) {
     return __awaiter(this, void 0, void 0, function* () {
-        const bgImg = (yield loadImage("bg2.jpg"));
+        const bgImg = (yield loadImage("bg.jpg"));
         ctx.drawImage(bgImg, 0, 0, W, H);
     });
 }
 drawImageOnCanvas(ctx, W, H)
     .then(() => {
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(100, 100);
-    ctx.stroke();
+    const budgerigar = new Budgerigar(canvas);
+    budgerigar.drawRightSide();
+    console.log(budgerigar);
 })
     .catch((error) => {
     console.error(error);
