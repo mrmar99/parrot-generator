@@ -11,6 +11,8 @@ export class Budgerigar extends Parrot {
 
   drawRightSide() {
     // this.drawRightSideHead({ x: 270, y: 35 });
+    const ctx = this.ctx;
+    ctx.restore();
     this.drawRightSideHead({ x: 465, y: 25 });
   }
 

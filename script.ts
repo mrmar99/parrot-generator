@@ -32,6 +32,7 @@ drawImageOnCanvas(ctx, W, H)
   .then(() => {
     const budgerigar = new Budgerigar(canvas);
     budgerigar.drawRightSide();
+    budgerigar.drawFront();
     console.log(budgerigar)
   })
   .catch((error) => {
